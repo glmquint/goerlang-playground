@@ -38,7 +38,7 @@ func main() {
 		panic(err)
 	}
 
-	proc, err := node.Spawn(ServerName, gen.ProcessOptions{}, &gen.Server{})
+	proc, err := node.Spawn(ServerName, gen.ProcessOptions{}, &demo{})
 	if err != nil {
 		panic(err)
 	}

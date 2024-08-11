@@ -32,6 +32,12 @@ func (d *demo) HandleCall(process *gen.ServerProcess, from gen.ServerFrom, messa
 	}
 }
 
+// HandleInfo
+func (d *demo) HandleInfo(process *gen.ServerProcess, message etf.Term) gen.ServerStatus {
+	fmt.Printf("[%s] HandleInfo: %#v\n", process.Name(), message)
+	return gen.ServerStatusOK
+}
+
 func (d *demo) Terminate(process *gen.ServerProcess, reason string) {
 	fmt.Printf("[%s] Terminating process with reason %q", process.Name(), reason)
 }
