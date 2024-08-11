@@ -12,3 +12,7 @@ docker build -f Dockerfile -t goerlang-playground .
 docker run -v .:/app --rm -it goerlang-playground bash
 ```
 
+for a more specific use case:
+```bash
+docker.exe run -v .:/app --rm -it goerlang-playground bash -c "tmux new -d 'go run .' && tmux split-window -h 'erl -name erl-demo@127.0.0.1 -setcookie 123' && tmux attach"
+```
