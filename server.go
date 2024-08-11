@@ -35,6 +35,14 @@ func (d *demo) HandleCall(process *gen.ServerProcess, from gen.ServerFrom, messa
 // HandleInfo
 func (d *demo) HandleInfo(process *gen.ServerProcess, message etf.Term) gen.ServerStatus {
 	fmt.Printf("[%s] HandleInfo: %#v\n", process.Name(), message)
+	if message == etf.Atom("ping") {
+		mailbox := "mailbox"
+		dest_node := "server@127.0.0.1"
+		err := process.Send(gen.ProcessID{Name: mailbox, Node: dest_node}, "pong")
+		if err != nil {
+			panic(err)
+		}
+	}
 	return gen.ServerStatusOK
 }
 
