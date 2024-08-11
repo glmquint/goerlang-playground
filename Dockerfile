@@ -6,3 +6,4 @@ WORKDIR /app
 RUN tar -C /usr/local -xzf go1.22.6.linux-amd64.tar.gz
 ENV PATH="/usr/local/go/bin:${PATH}"
 RUN echo "export PATH=/usr/local/go/bin:\${PATH}" >> ~/.profile
+RUN go get github.com/ergo-services/ergo
